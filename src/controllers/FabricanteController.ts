@@ -10,9 +10,7 @@ class FabricanteController{
     public async listAll(): Promise<Request[]>{
 
         const db = getManager();
-        const query = `EXECUTE DBO.proc_seltb_fabricante
-
-        `;
+        const query = `EXECUTE DBO.proc_seltb_fabricante `;
 
         const fabricante = await db.query(query);
 
@@ -38,7 +36,7 @@ class FabricanteController{
         const db = getManager();
         const query = `EXECUTE DBO.proc_seltb_fabricante
 
-        @nm_fabricante         =${nomefabricante}
+        @nm_fabricante         ='${nomefabricante}'
 
         `;
 
@@ -52,7 +50,7 @@ class FabricanteController{
         const db = getManager();
         const query = `EXECUTE DBO.proc_instb_fabricante
 
-        @nm_fabricante       =${nm_fabricante}
+        @nm_fabricante       ='${nm_fabricante}'
 
         `;
 
@@ -67,7 +65,7 @@ class FabricanteController{
         const query = `EXECUTE DBO.proc_updtb_fabricante
 
         @id               =${id},
-        @nm_fabricante       =${nm_fabricante}
+        @nm_fabricante       ='${nm_fabricante}'
 
         `;
 
