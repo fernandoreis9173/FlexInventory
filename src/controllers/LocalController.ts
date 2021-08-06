@@ -63,13 +63,15 @@ interface Request {
         return local;
     }
 
-    public async UpdateLocal({id,nm_local}:Request): Promise<Request[]>{
+    public async UpdateLocal({id,nm_local, cd_local,id_predio}:Request): Promise<Request[]>{
 
         const db = getManager();
         const query = `EXECUTE DBO.proc_updtb_local
 
         @id               =${id},
-        @nm_local        ='${nm_local}'
+        @nm_local        ='${nm_local}',
+        @cd_local        ='${cd_local}',
+        @id_predio        ='${id_predio}'
 
         `;
 
