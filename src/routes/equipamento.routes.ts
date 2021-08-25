@@ -31,10 +31,10 @@ router.get('/', async(request, response)=>{
 
     try{
   
-      const {id_fabricante, id_modelo, id_local} = request.body;
+      const {id_fabricante, id_modelo, cd_prefixo} = request.body;
   
       const equipamento = new EquipamentoController();
-      const req = await equipamento.InsertEquipamento(id_fabricante, id_modelo, id_local);
+      const req = await equipamento.InsertEquipamento(id_fabricante, id_modelo, cd_prefixo);
       response.status(200).json(req);
     }catch(error){
       response.status(400).json({error: error.message})

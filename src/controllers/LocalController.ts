@@ -15,7 +15,6 @@ interface Request {
         const query = `EXECUTE DBO.proc_seltb_local `;
 
         const local = await db.query(query);
-
         return local;
     }
 
@@ -29,7 +28,6 @@ interface Request {
         `;
 
         const local = await db.query(query);
-
         return local;
     }
 
@@ -43,7 +41,6 @@ interface Request {
         `;
 
         const local = await db.query(query);
-
         return local;
     }
 
@@ -59,6 +56,7 @@ interface Request {
         `;
 
         const local = await db.query(query);
+        await db.connection.close();
 
         return local;
     }
@@ -76,7 +74,6 @@ interface Request {
         `;
 
         const local = await db.query(query);
-
         return local;
     }
 
@@ -90,7 +87,6 @@ interface Request {
         `;
 
         const local = await db.query(query);
-
         return local;
     }
 

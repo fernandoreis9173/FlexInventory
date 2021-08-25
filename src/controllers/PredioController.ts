@@ -14,7 +14,6 @@ interface Request {
         const query = `EXECUTE DBO.proc_seltb_predio `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 
@@ -28,7 +27,6 @@ interface Request {
         `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 
@@ -42,7 +40,6 @@ interface Request {
         `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 
@@ -57,7 +54,6 @@ interface Request {
         `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 
@@ -72,7 +68,6 @@ interface Request {
         `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 
@@ -86,7 +81,6 @@ interface Request {
         `;
 
         const predio = await db.query(query);
-
         return predio;
     }
 

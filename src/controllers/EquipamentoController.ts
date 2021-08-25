@@ -4,7 +4,7 @@ interface Request {
     id: number,
     id_fabricante: number,
     id_modelo: number,
-    id_local: number
+    cd_prefixo: string
   }
 
   class EquipamentoController{
@@ -15,7 +15,6 @@ interface Request {
         const query = `EXECUTE DBO.proc_seltb_equipamento `;
 
         const equipamento = await db.query(query);
-
         return equipamento;
     }
 
@@ -29,23 +28,21 @@ interface Request {
         `;
 
         const equipamento = await db.query(query);
-
         return equipamento;
     }
 
-    public async InsertEquipamento(id_fabricante:number, id_modelo:number, id_local:number): Promise<Request[]>{
+    public async InsertEquipamento(id_fabricante:number, id_modelo:number, cd_prefixo:string): Promise<Request[]>{
 
         const db = getManager();
         const query = `EXECUTE DBO.proc_instb_equipamento
 
         @id_fabricante          =${id_fabricante},
-        @id_modelo           ='${id_modelo}',
-        @id_local           ='${id_local}'
+        @id_modelo           =${id_modelo},
+        @cd_prefixo           ='${cd_prefixo}'
 
         `;
 
         const equipamento = await db.query(query);
-
         return equipamento;
     }
 

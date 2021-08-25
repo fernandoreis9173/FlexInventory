@@ -61,10 +61,10 @@ router.get('/', async(request, response)=>{
 
     try{
   
-      const {id, nm_modelo, id_fabricante} = request.body;
+      const {id, nm_modelo} = request.body;
   
       const modelo = new ModeloController();
-      const req = await modelo.UpdateLocal({id, nm_modelo, id_fabricante});
+      const req = await modelo.UpdateLocal({id, nm_modelo});
       response.status(200).json(req);
     }catch(error){
       response.status(400).json({error: error.message})

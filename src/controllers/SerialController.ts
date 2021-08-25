@@ -13,7 +13,6 @@ interface Request {
         const query = `EXECUTE DBO.proc_seltb_serial `;
 
         const serial = await db.query(query);
-
         return serial;
     }
 
@@ -27,7 +26,6 @@ interface Request {
         `;
 
         const serial = await db.query(query);
-
         return serial;
     }
 
@@ -41,7 +39,6 @@ interface Request {
         `;
 
         const serial = await db.query(query);
-
         return serial;
     }
 

@@ -1,25 +1,24 @@
-import { getManager } from 'typeorm';
+import { getManager, createConnection } from 'typeorm';
 
 interface Request {
     id: number,
     nm_fabricante: string
   }
-
+  
 class FabricanteController{
  
-    public async listAll(): Promise<Request[]>{
-
+     public async listAll(): Promise<Request[]>{
+        
         const db = getManager();
         const query = `EXECUTE DBO.proc_seltb_fabricante `;
-
-        const fabricante = await db.query(query);
-
+        const fabricante = await db.query(query);  
         return fabricante;
     }
 
     public async listID(id:number): Promise<Request[]>{
 
         const db = getManager();
+
         const query = `EXECUTE DBO.proc_seltb_fabricante
 
         @id         =${id}
@@ -27,7 +26,6 @@ class FabricanteController{
         `;
 
         const fabricante = await db.query(query);
-
         return fabricante;
     }
 
@@ -41,7 +39,6 @@ class FabricanteController{
         `;
 
         const fabricante = await db.query(query);
-
         return fabricante;
     }
 
@@ -55,7 +52,6 @@ class FabricanteController{
         `;
 
         const fabricante = await db.query(query);
-
         return fabricante;
     }
 
@@ -70,7 +66,6 @@ class FabricanteController{
         `;
 
         const fabricante = await db.query(query);
-
         return fabricante;
     }
     
@@ -84,7 +79,6 @@ class FabricanteController{
         `;
 
         const fabricante = await db.query(query);
-
         return fabricante;
     }
 

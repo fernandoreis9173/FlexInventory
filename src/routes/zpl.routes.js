@@ -6,6 +6,8 @@ router.post('/', (request, response) =>{
   try{
 
     const { zpl, host, port } = request.body;
+
+    console.log(zpl,host,port);
     
     let client = net.connect(port, host, ()=>{ 
       client.write(zpl);
@@ -26,6 +28,8 @@ router.post('/', (request, response) =>{
 })
 
 router.get('/:host/:port',(request, response)=>{
+
+  console.log('aqui');
 
   try{
     const host = request.params.host;
