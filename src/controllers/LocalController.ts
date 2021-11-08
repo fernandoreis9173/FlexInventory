@@ -56,7 +56,6 @@ interface Request {
         `;
 
         const local = await db.query(query);
-        await db.connection.close();
 
         return local;
     }

@@ -7,7 +7,8 @@ import modelo from './routes/modelo.routes';
 import equipamento from './routes/equipamento.routes';
 import serial from './routes/serial.routes';
 import printer from './routes/zpl.routes.js';
-import authenticate from './routes/autenticate.routes.js';
+import authenticate from './routes/autenticate.routes';
+import prefixo from './routes/prefixo.routes';
 
 var cors = require('cors')
 import './database';
@@ -23,6 +24,7 @@ app.use('/modelo', modelo);
 app.use('/printer', printer);
 app.use('/equipamento', equipamento);
 app.use('/serial', serial);
+app.use('/prefixo', prefixo);
 app.use('/authenticate', authenticate);
 
 app.listen(3333, ()=>{

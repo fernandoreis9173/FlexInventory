@@ -25,7 +25,7 @@ router.get('/byid/:id', async(request, response)=>{
     const req = await fabricante.listID(id)
     response.status(200).json(req);
   }catch(error){
-    response.status(400).json({error: error.message})
+   return response.status(400).send({error: error.message})
   }
   
 });

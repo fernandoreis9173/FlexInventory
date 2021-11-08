@@ -1,11 +1,11 @@
 import {Router} from 'express';
-import EquipamentoController from '../controllers/EquipamentoController';
+import PrefixoController from '../controllers/PrefixoController';
 const router = Router();
 
 router.get('/', async(request, response)=>{
     try{
-        const equipamento = new EquipamentoController();
-        const req = await equipamento.listAll()
+        const prefixo = new PrefixoController();
+        const req = await prefixo.listAll()
         response.status(200).json(req);
       }catch(error){
         response.status(400).json({error: error.message})
@@ -18,8 +18,8 @@ router.get('/', async(request, response)=>{
   
       const id = Number(request.params.id);
   
-      const equipamento = new EquipamentoController();
-      const req = await equipamento.listID(id)
+      const prefixo = new PrefixoController();
+      const req = await prefixo.listID(id)
       response.status(200).json(req);
     }catch(error){
       response.status(400).json({error: error.message})
@@ -28,16 +28,16 @@ router.get('/', async(request, response)=>{
   });
 
   router.post('/', async(request, response)=>{
-
+ 
     try{
   
-      const {id_fabricante, id_modelo, cd_prefixo} = request.body;
+      const {cd_prefixo, qtd_inicial, qtd_final} = request.body;
   
-      const equipamento = new EquipamentoController();
-      const req = await equipamento.InsertEquipamento(id_fabricante, id_modelo, cd_prefixo);
+      const prefixo = new PrefixoController();
+      const req = await prefixo.InsertPrefixo(cd_prefixo, qtd_inicial, qtd_final);
       response.status(200).json(req);
     }catch(error){
-      response.status(400).json({error: error})
+      response.status(400).json({error: error.message})
     }
     
   });
