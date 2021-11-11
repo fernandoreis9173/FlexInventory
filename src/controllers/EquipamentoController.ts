@@ -41,6 +41,7 @@ interface Request {
         @cd_prefixo           ='${cd_prefixo}'
 
         `;
+        console.log('sql:'+query)
 
         const equipamento = await db.query(query);
         return equipamento;

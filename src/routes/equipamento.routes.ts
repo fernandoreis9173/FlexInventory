@@ -37,7 +37,8 @@ router.get('/', async(request, response)=>{
       const req = await equipamento.InsertEquipamento(id_fabricante, id_modelo, cd_prefixo);
       response.status(200).json(req);
     }catch(error){
-      response.status(400).json({error: error})
+      response.status(400).json({error: 'Equipamento não pode ser inserido'})
+      console.log(error);
     }
     
   });
